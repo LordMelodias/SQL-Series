@@ -1,0 +1,30 @@
+==============================
+Database Keys and Constraints
+==============================
+
+| Type               | Category   | Meaning (Simple Words)                                      | Why It's Used                             | Example                                                        |
+|--------------------|------------|--------------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------|
+| Primary Key        | Key        | A unique ID for each row in a table                          | To uniquely identify each record           | student_id in students table                                   |
+| Foreign Key        | Key        | A column that connects to another table’s primary key        | To create relationships between tables     | student_id in courses refers to students.student_id            |
+| Candidate Key      | Key        | Other columns that could be used as a primary key            | Backup choices for unique ID               | email or username in a user table                              |
+| Composite Key      | Key        | A combination of columns used as a primary key               | When no single column can uniquely identify| order_id + product_id in order_details table                   |
+| Super Key          | Key        | A set of columns that uniquely identifies a row              | Theoretical concept for database design    | {student_id, email, phone} in students table                   |
+
+
+==============================
+Constraints
+==============================
+
+| Type               | Category   | Meaning (Simple Words)                                      | Why It's Used                             | Example                                                        |
+|--------------------|------------|--------------------------------------------------------------|--------------------------------------------|----------------------------------------------------------------|
+| NOT NULL           | Constraint | Column must have a value (can’t be empty)                    | To ensure required fields are filled       | name VARCHAR(50) NOT NULL                                      |
+| UNIQUE             | Constraint | All values in this column must be different                  | To prevent duplicates                      | email VARCHAR(100) UNIQUE                                      |
+| CHECK              | Constraint | Data must meet a condition                                   | To enforce business rules                  | CHECK (age >= 18) for adult users                              |
+| DEFAULT            | Constraint | Set a default value if no value is given                     | To auto-fill common values                 | status VARCHAR(20) DEFAULT 'pending'                           |
+| PRIMARY KEY        | Constraint | Declares a column as the main unique identifier              | To define the primary key                  | PRIMARY KEY (student_id)                                       |
+| FOREIGN KEY        | Constraint | Declares a column that links to another table's key          | To enforce referential integrity           | FOREIGN KEY (dept_id) REFERENCES departments(id)               |
+| INDEX              | Constraint | Improves search speed on a column                            | To optimize query performance              | CREATE INDEX idx_name ON students(name);                       |
+| AUTO_INCREMENT     | Constraint | Automatically generates sequential numbers                   | For surrogate primary keys                 | id INT AUTO_INCREMENT PRIMARY KEY                              |
+| ON DELETE CASCADE  | Constraint | Automatically deletes child records when parent is deleted   | To maintain data integrity                 | FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE   |
+| ON UPDATE CASCADE  | Constraint | Updates child records when parent key changes                | To synchronize related data                | FOREIGN KEY (order_id) REFERENCES orders(id) ON UPDATE CASCADE |
+| ENUM               | Constraint | Restricts a column to specific values                        | To limit input options                     | gender ENUM('Male', 'Female', 'Other')                         |

@@ -74,5 +74,3 @@ Choosing the Right Data Type
  - Use DATE, TIME, and DATETIME for temporal data.
  - Use DECIMAL for precise numeric calculations (like currency).
  - Use BOOLEAN for true/false values.
-
- 
