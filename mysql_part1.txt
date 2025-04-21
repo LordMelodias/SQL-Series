@@ -1,0 +1,51 @@
+# Create and Use Database
+Example:
+CREATE DATABASE my_db;
+USE my_db;
+
+-----------------------------------------------------------------------------
+
+# Create Table
+Example:
+CREATE TABLE employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(50)
+);
+
+-------------------------------------------------------------------------------
+
+# View Table Structure
+Example:
+DESCRIBE employees;
+-- or
+SHOW COLUMNS FROM employees;
+
+--------------------------------------------------------------------------------
+
+# Insert Data
+Example:
+INSERT INTO employees (name, age, department)
+VALUES ('Alice', 30, 'HR');
+
+--------------------------------------------------------------------------------
+
+#  Update Data
+Example:
+UPDATE students SET age = 21 WHERE name = 'Alice';
+
+--------------------------------------------------------------------------------
+
+# Delete Data
+Example:
+DELETE FROM students WHERE name = 'Alice';
+
+--------------------------------------------------------------------------------
+
+# Basic SELECT
+Example:
+SELECT * FROM employees;
+SELECT name, age FROM employees WHERE department = 'HR';
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,123 @@
+# Joins
+----INNER JOIN: Returns rows only when there is a match in both tables.
+Example:
+SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.id;
+
+----LEFT JOIN: When you want all records from the left table and the matching ones from the right (useful when you expect missing data).
+Example:
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.id;
+
+
+----RIGHT JOIN: When you want all records from the right table and matching ones from the left (useful when the right table is the main table).
+Example:
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.id;
+
+
+----FULL JOIN: When you need all records from both tables, regardless of matching data.
+Example:
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.id
+UNION
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.id;
+
+
+----CROSS JOIN: When you need every combination of records from two tables (be cautious with large datasets).
+Example:
+SELECT e.name, p.project_name
+FROM employees e
+CROSS JOIN projects p;
+
+
+----SELF JOIN: When you need to relate rows within the same table (like hierarchical data).
+Example:
+SELECT e1.name AS Employee, e2.name AS Manager
+FROM employees e1
+LEFT JOIN employees e2 ON e1.manager_id = e2.id;
+
+---------------------------------------------------------------------------------------------------------------------------
+
+# Subquery 
+Example:
+SELECT name, age
+FROM employees
+WHERE age > (SELECT AVG(age) FROM employees);
+
+------------------------------------------------------------------------------------------------------------------------------
+
+# Create a View
+Example:
+CREATE VIEW senior_employees AS
+SELECT * FROM employees WHERE age > 40;
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Update View or Drop
+Example:
+DROP VIEW senior_employees;
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+# Indexing & Performance
+Example:
+-- Create index on column
+CREATE INDEX idx_department ON employees(department);
+
+-- Drop index
+DROP INDEX idx_department ON employees;
+
+------------------------------------------------------------------------------------------------------------------------------
+
+# Constraints & Keys
+(PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, DEFAULT, CHECK
+)
+PRIMARY KEY: A column that uniquely identifies each row.
+FOREIGN KEY: A link between two tables.
+
+Example:
+CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(id)
+);
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+# User Management & Permissions
+Example:
+-- Create user
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password';
+
+-- Grant privileges
+GRANT ALL PRIVILEGES ON my_db.* TO 'user1'@'localhost';
+
+-- Revoke privileges
+REVOKE ALL PRIVILEGES ON my_db.* FROM 'user1'@'localhost';
+
+-- Delete user
+DROP USER 'user1'@'localhost';
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Backup & Export
+Example:
+# Export a database
+mysqldump -u root -p my_db > my_db_backup.sql
+
+# Import a database
+mysql -u root -p my_db < my_db_backup.sql
+
+------------------------------------------------------------------------------------------------------------------------------------

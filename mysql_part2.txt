@@ -1,0 +1,137 @@
+# ALTER TABLE
+Meaning: Modify an existing table’s structure.
+Why use it: Add/remove/rename columns after creation.
+Example:
+-- Add column
+ALTER TABLE employees ADD email VARCHAR(100);
+
+-- Modify column type
+ALTER TABLE employees MODIFY age SMALLINT;
+
+-- Rename column
+ALTER TABLE employees CHANGE name full_name VARCHAR(100);
+
+-- Drop column
+ALTER TABLE employees DROP COLUMN email;
+
+------------------------------------------------------------------------------------------
+
+# DELETE vs TRUNCATE vs DROP
+Example:
+-- Delete specific rows
+DELETE FROM employees WHERE age > 50;
+
+-- Truncate table (clears all rows, resets AUTO_INCREMENT)
+TRUNCATE TABLE employees;
+
+-- Drop table (permanently deletes structure & data)
+DROP TABLE employees;
+
+-----------------------------------------------------------------------------------------
+
+# WHERE and Operators
+Meaning: Filter rows based on condition.
+Example:
+SELECT * FROM employees WHERE age > 25 AND department = 'Sales';
+
+------------------------------------------------------------------------------------------
+
+# ORDER BY
+Meaning: Sort results (ascending or descending).
+Example:
+SELECT * FROM employees ORDER BY age DESC;
+
+------------------------------------------------------------------------------------------
+
+# GROUP BY + Aggregates
+Meaning: Group rows to perform aggregations (	COUNT(), SUM(), AVG(), MIN(), MAX()).
+Example:
+SELECT department, COUNT(*) AS total FROM employees GROUP BY department;
+
+-------------------------------------------------------------------------------------------
+
+# HAVING Clause
+Meaning: Filters groups created by the GROUP BY clause. Works like WHERE but with aggregates.
+Example:
+SELECT grade, COUNT(*) AS count 
+FROM students 
+GROUP BY grade 
+HAVING count > 1;
+
+--------------------------------------------------------------------------------------------
+
+# LIMIT Clause
+Meaning: Limits the number of records returned.
+Example:
+SELECT * FROM students LIMIT 5;
+
+---------------------------------------------------------------------------------------------
+
+# IN Clause
+Meaning: Checks if a value exists in a list of values.
+Example:
+SELECT * FROM students WHERE grade IN ('A', 'B');
+
+------------------------------------------------------------------------------------------------
+
+# BETWEEN Clause
+Meaning: Retrieves values within a specified range.
+Example:
+SELECT * FROM students WHERE age BETWEEN 18 AND 25;
+
+--------------------------------------------------------------------------------------------------
+
+# LIKE Clause
+Meaning: Searches for a pattern in a column.
+Example:
+SELECT * FROM students WHERE name LIKE 'A%';
+
+-------------------------------------------------------------------------------------------------
+
+# DISTINCT Clause
+Meaning: Removes duplicate values from the result.
+Example:
+SELECT DISTINCT grade FROM students;
+
+
+--------------------------------------------------------------------------------------------------
+
+# String Functions
+Example:
+SELECT UPPER(name), LOWER(name), LENGTH(name) FROM employees;
+
+--------------------------------------------------------------------------------------------
+
+# Date Functions
+Example:
+SELECT NOW(), CURDATE(), YEAR(hire_date), DATEDIFF(NOW(), hire_date) FROM employees;
+
+--------------------------------------------------------------------------------------------
+
+# CASE WHEN
+Example:
+SELECT name,
+  CASE
+    WHEN age < 25 THEN 'Junior'
+    WHEN age < 40 THEN 'Mid-level'
+    ELSE 'Senior'
+  END AS experience_level
+FROM employees;
+
+---------------------------------------------------------------------------------------------
+
+
+# Summary of Caluse:
+
+- SELECT - Fetch data.
+- WHERE - Filter data.
+- ORDER BY - Sort data.
+- GROUP BY - Group data.
+- HAVING - Filter grouped data.
+- LIMIT - Limit results.
+- JOIN - Combine tables.
+- IN - Match multiple values.
+- BETWEEN - Specify range.
+- LIKE - Search pattern.
+- IS NULL - Check missing data.
+- DISTINCT - Unique results.

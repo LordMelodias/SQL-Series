@@ -1,0 +1,53 @@
+What is a Database?
+A database is an organized collection of data that can be easily accessed, managed, and updated. Think of it as a digital filing cabinet.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types of Databases:
+1. Relational Databases (SQL)
+ - Use tables (rows & columns)
+ - Examples: MySQL, PostgreSQL, BigQuery, SQL Server
+2. Non-Relational Databases (NoSQL)
+ - Use documents, key-value pairs, graphs, etc.
+ - Examples: MongoDB, Cassandra, Firebase
+
+ -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Why Use Databases?
+ - Store large amounts of data efficiently
+ - Quickly retrieve and filter data
+ - Analyze patterns, trends, and insights
+ - Keep data secure and backed up
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction to SQL
+ - What is it: A language (Structured Query Language) used to manage and query relational databases.
+ - Role: It’s a language. You use SQL to write queries.
+ - Where it's used: Works with many systems: MySQL, PostgreSQL, SQLite, etc.
+ - Performance: Depends on your hardware/server.
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction to BigQuery:
+- What is it: A cloud-based data warehouse by Google that uses SQL to query data.
+- Role: It’s a platform/service that executes SQL queries on large datasets.
+- Where it's used: Specific to Google Cloud Platform (GCP).
+- Performance: Fully managed and serverless — Google handles scaling and performance.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction to Redshift: 
+- What is it: A cloud-based data warehouse by Amazon that allows you to run SQL queries on large datasets.
+- Role: It’s a managed service that stores and analyzes big data using SQL, ideal for analytics and reporting.
+- Where it's used: Part of Amazon Web Services (AWS), commonly used in data pipelines, BI dashboards, and large-scale data processing.
+- Performance: High performance through columnar storage, parallel processing, and customizable clusters — but not fully serverless (you manage compute resources).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Introduction to Azure Synapse:
+ - What is it: A cloud-based data warehouse and analytics service by Microsoft Azure that supports both SQL and big data workloads.
+ - Role: It enables SQL-based querying, big data processing, and real-time analytics in one unified platform — combining data warehousing and data lake capabilities.
+ - Where it's used: Runs on Microsoft Azure, used in enterprises for reporting, BI, ETL, and machine learning workflows with seamless integration into tools like Power BI and Azure Machine Learning.
+ - Performance: Offers dedicated SQL pools for high-performance warehousing, on-demand (serverless) queries, and massively parallel processing (MPP) — flexible, scalable, and optimized for complex workloads.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------

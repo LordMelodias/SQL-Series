@@ -1,0 +1,78 @@
+# Data Types:
+
+===========================
+1. Numeric Data Types
+===========================
+
+| Data Type     | Description                          | Example Value       |
+|---------------|--------------------------------------|---------------------|
+| INT           | Integer values                       | 10, -5, 0           |
+| BIGINT        | Large integer values                 | 9999999999          |
+| SMALLINT      | Smaller range integer values         | 32767               |
+| TINYINT       | Very small integer values            | 0, 255              |
+| DECIMAL(p, s) | Exact decimal values with precision  | 1234.56             |
+| FLOAT(p)      | Approximate floating-point values    | 3.14159             |
+| DOUBLE        | Double-precision floating-point      | 1234567.89          |
+
+Note: 
+p = Precision (total number of digits)  
+s = Scale (number of digits after the decimal point)
+
+===========================
+2. String Data Types
+===========================
+
+| Data Type   | Description                            | Example Value       |
+|-------------|----------------------------------------|---------------------|
+| CHAR(n)     | Fixed-length string (n characters)     | 'ABC'               |
+| VARCHAR(n)  | Variable-length string (up to n chars) | 'Hello World'       |
+| TEXT        | Large string of variable length        | 'Lorem ipsum...'    |
+| BLOB        | Binary Large Object for binary data    | Images, files       |
+
+Note: 
+n = Maximum number of characters
+
+===========================
+3. Date and Time Data Types
+===========================
+
+| Data Type   | Description                             | Example Value            |
+|-------------|-----------------------------------------|--------------------------|
+| DATE        | Stores date in 'YYYY-MM-DD' format      | '2025-03-18'             |
+| TIME        | Stores time in 'HH:MM:SS' format        | '14:30:59'               |
+| DATETIME    | Stores date and time                    | '2025-03-18 14:30:59'    |
+| TIMESTAMP   | Stores date and time with time zone     | '2025-03-18 14:30:59'    |
+| YEAR        | Stores a year (2 or 4 digits)           | 2025                     |
+
+===========================
+4. Boolean Data Type
+===========================
+
+| Data Type | Description              | Example Value |
+|-----------|--------------------------|---------------|
+| BOOLEAN   | True (1) or False (0)    | 1, 0          |
+
+Note: 
+MySQL uses TINYINT(1) for Boolean.
+
+===========================
+5. Miscellaneous Data Types
+===========================
+
+| Data Type                        | Description                              | Example Value                      |
+|----------------------------------|------------------------------------------|------------------------------------|
+| ENUM('val1', 'val2', ...)        | Stores one value from a defined set      | 'Male', 'Female'                   |
+| SET('val1', 'val2', ...)         | Stores multiple values from a set        | 'Reading, Music'                   |
+| JSON                             | Stores JSON-formatted data               | {"name": "Alice"}                  |
+| UUID                             | Universally Unique Identifier            | '550e8400-e29b-41d4-a716-446655440000' |
+
+
+Choosing the Right Data Type
+ - Use INTEGER for counting.
+ - Use VARCHAR for variable-length text.
+ - Use TEXT for large text. 
+ - Use DATE, TIME, and DATETIME for temporal data.
+ - Use DECIMAL for precise numeric calculations (like currency).
+ - Use BOOLEAN for true/false values.
+
+ 
