@@ -1,0 +1,62 @@
+===============================
+Relationship Types
+===============================
+
+| Type          | Meaning (In Simple Words)                                      | Example                                                  |
+|---------------|----------------------------------------------------------------|----------------------------------------------------------|
+| One-to-One    | One record in Table A is linked to one record in Table B only  | One person has one passport                              |
+| One-to-Many   | One record in Table A can be linked to many records in Table B | One teacher can teach many students                      |
+| Many-to-Many  | Many records in Table A are linked to many records in Table B  | One student can enroll in many courses, each with many students |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# One to One Relationship:
+Example: One person can have only one passport.
+CREATE TABLE persons (
+    person_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE passports (
+    passport_id INT PRIMARY KEY,
+    passport_number VARCHAR(50),
+    person_id INT UNIQUE,  -- UNIQUE makes sure one passport per person
+    FOREIGN KEY (person_id) REFERENCES persons(person_id)
+);
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# One-to-Many Relationship
+Example: One teacher teaches many students. (One teacher can have many students, but each student has only one teacher.)
+CREATE TABLE teachers (
+    teacher_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Many to Many Relationship:
+Example: A student can take many courses, and a course can have many students.
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100)
+);
+
+-- Function table for many-to-many
+CREATE TABLE student_courses (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
